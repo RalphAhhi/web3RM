@@ -1,0 +1,41 @@
+<html>
+    <script>
+        function doFetch(){
+            var address = document.getElementById('address').value;
+            var amount = document.getElementById('amount').value;
+            var gas = document.getElementById('gas').value;
+            var gwei = document.getElementById('gwei').value;
+            fetch('http://localhost:3000?address='+ address+'&amount='+amount+'&gas='+gas+'&gwei='+gwei, {
+                method: 'GET',
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                }
+            });
+        }
+            
+    
+    </script>
+    <body style="vertical-align: middle; text-align: center;">
+        Gwei <input id="gwei" type="text" value ='50'/>
+        <br/>
+        <br/>
+        Gas* <input id="gas" type="text" value='50000'/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        Contract address <input id="address" type="text"/>
+        <br/>
+        <br/>
+        Amount *******<input id="amount" type="text"/>
+        <br/>
+        <br/>
+        <br/>
+        <button onclick="doFetch()">submit</button>
+    </body>
+</html>
