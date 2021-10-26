@@ -145,11 +145,6 @@ module.exports = class TransactionChecker {
         return myContract;
     }
 
-    // getLiquidity(address tokenA, address tokenB) view external returns (uint256) {
-    //     IUniswapV2Pair pair;
-    //     pair = IUniswapV2Pair(factory.getPair(tokenA, tokenB));
-    //     return pair.balanceOf(msg.sender);
-    // }
 }
 // var trx = require('./TransactionChecker.js')
 
