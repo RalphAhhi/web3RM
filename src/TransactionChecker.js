@@ -7,14 +7,12 @@ const open = require('open')
 
 const TestWBNBAddress = '0xae13d989dac2f0debff460ac112a837c89baa7cd'
 const testPrivateKey = '8daf0a408043730a6eed9f3cc48de3a1e0a3c2f330d7f6352593b8e1d947a184'
-const testAddress = '0xD5775d2c72BCfB42ee1641F68c85F6f6163f3Fc4';
-
-const WBNBAddress = '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c'
-
 
 const apikey = 'CPJQKFY8Z7XK87FXZQCAWBRYIVA5BBW694';
 
 module.exports = class TransactionChecker {
+    testAddress = '0xD5775d2c72BCfB42ee1641F68c85F6f6163f3Fc4';    
+    WBNBAddress = '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c'
     web3;
     account;
     smartChain = 'https://bsc-dataseed.binance.org/';
@@ -29,6 +27,7 @@ module.exports = class TransactionChecker {
             this.web3 = new Web3(new Web3.providers.HttpProvider(this.smartChain))
             this.pancakeContract = new this.web3.eth.Contract(PancakeABI.abi, PancakeABI.address);
         } else {
+            this.WBNBAddress = this.TestWBNBAddress;
             this.web3 = new Web3(new Web3.providers.HttpProvider(this.testChain))
             this.pancakeContract = new this.web3.eth.Contract(TestPancakeABI.abi, TestPancakeABI.address);
         }

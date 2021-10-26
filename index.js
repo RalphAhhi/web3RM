@@ -3,6 +3,7 @@ const http = require("http")
 var fs = require('fs');
 var url = require('url');
 var trxChecker = require('./src/TransactionChecker');
+var ethSwap = require('./src/EthSwap');
 require('dotenv').config()
 
 
@@ -25,7 +26,7 @@ const server = http.createServer((req, res) => {
 
 function buyToken(targetContract, amount, gwei, gas) {
   if (isValid(targetContract) && isValid(amount) && isValid(gwei) && isValid(gas)) {
-    var trx = new trxChecker(liveAddress, livePrivateKey,true);
+    var trx = new ethSwap(liveAddress, livePrivateKey,true);
     console.log('buying: ', targetContract)
     trx.buyToken(amount, targetContract, gwei, gas).catch(e=>console.log(e));
   }else{
